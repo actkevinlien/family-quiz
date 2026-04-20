@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>認識蔬菜 - 幼兒趣味問答</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'soft-blue': '#E0F2FE',
+                        'sunny-yellow': '#FEF3C7',
+                        'fresh-green': '#DCFCE7',
+                        'lavender': '#F3E8FF',
+                        'charcoal': '#374151',
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans TC', 'sans-serif'],
+                        display: ['Outfit', 'Noto Sans TC', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        'xl': '1.5rem',
+                        '2xl': '2rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FAFAF9;
+            color: #374151;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .span-2 {
+                grid-column: span 2;
+            }
+        }
+        .hover-lift {
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
+        .bubble-bg {
+            position: fixed;
+            z-index: -1;
+            filter: blur(80px);
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased pb-12">
+
+    <!-- Decorative Background Elements -->
+    <div class="bubble-bg top-0 left-0 w-96 h-96 bg-soft-blue rounded-full"></div>
+    <div class="bubble-bg bottom-0 right-0 w-96 h-96 bg-sunny-yellow rounded-full"></div>
+    <div class="bubble-bg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-fresh-green rounded-full"></div>
+
+    <!-- Header Section -->
+    <header class="pt-12 pb-8 px-6 text-center max-w-4xl mx-auto">
+        <div class="inline-block px-4 py-1.5 mb-4 rounded-full bg-fresh-green text-green-700 font-bold text-sm tracking-widest uppercase">
+            蔬菜小學堂
+        </div>
+        <h1 class="text-5xl md:text-7xl font-black text-charcoal font-display tracking-tight mb-4">
+            認識蔬菜
+        </h1>
+        <p class="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
+            親愛的小朋友，準備好來一場有趣的冒險了嗎？讓我們一起認識好吃的蔬菜，變成健康的小超人！
+        </p>
+    </header>
+
+    <!-- Main Quiz Area -->
+    <main class="max-w-6xl mx-auto px-6">
+        <div id="quiz-container" class="bento-grid">
+            <!-- Question 1 -->
+            <article class="glass-card p-8 rounded-2xl hover-lift border-l-8 border-orange-400">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-10 h-10 flex items-center justify-center bg-orange-100 text-orange-600 rounded-full font-black text-xl font-display">1</span>
+                    <h2 class="text-xl font-bold text-charcoal">兔子最愛</h2>
+                </div>
+                <p class="text-2xl font-medium leading-snug mb-6 text-gray-800">
+                    兔子最喜歡吃什麼橘紅色的長長蔬菜呢？
+                </p>
+                <ul class="space-y-3">
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(A) 青江菜</li>
+                    <li class="p-4 bg-orange-50 rounded-xl border-2 border-orange-200 font-bold text-orange-800">(B) 胡蘿蔔</li>
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(C) 茄子</li>
+                </ul>
+            </article>
+
+            <!-- Question 2 -->
+            <article class="glass-card p-8 rounded-2xl hover-lift border-l-8 border-green-400">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-10 h-10 flex items-center justify-center bg-green-100 text-green-600 rounded-full font-black text-xl font-display">2</span>
+                    <h2 class="text-xl font-bold text-charcoal">綠色小樹</h2>
+                </div>
+                <p class="text-2xl font-medium leading-snug mb-6 text-gray-800">
+                    哪一種蔬菜長得像一棵綠色的小樹，吃了會變強壯？
+                </p>
+                <ul class="space-y-3">
+                    <li class="p-4 bg-green-50 rounded-xl border-2 border-green-200 font-bold text-green-800">(A) 花椰菜</li>
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(B) 南瓜</li>
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(C) 辣椒</li>
+                </ul>
+            </article>
+
+            <!-- Question 3 -->
+            <article class="glass-card p-8 rounded-2xl hover-lift border-l-8 border-yellow-400">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-10 h-10 flex items-center justify-center bg-yellow-100 text-yellow-600 rounded-full font-black text-xl font-display">3</span>
+                    <h2 class="text-xl font-bold text-charcoal">黃色珍珠</h2>
+                </div>
+                <p class="text-2xl font-medium leading-snug mb-6 text-gray-800">
+                    剝開黃色的外衣，裡面有一顆顆像珍珠一樣的黃色小顆粒是什麼？
+                </p>
+                <ul class="space-y-3">
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(A) 小黃瓜</li>
+                    <li class="p-4 bg-yellow-50 rounded-xl border-2 border-yellow-200 font-bold text-yellow-800">(B) 玉米</li>
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(C) 苦瓜</li>
+                </ul>
+            </article>
+
+            <!-- Question 4 -->
+            <article class="glass-card p-8 rounded-2xl hover-lift border-l-8 border-purple-400">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-10 h-10 flex items-center justify-center bg-purple-100 text-purple-600 rounded-full font-black text-xl font-display">4</span>
+                    <h2 class="text-xl font-bold text-charcoal">紫色衣服</h2>
+                </div>
+                <p class="text-2xl font-medium leading-snug mb-6 text-gray-800">
+                    哪一種蔬菜穿著紫色的漂亮衣服，長得長長的又很漂亮？
+                </p>
+                <ul class="space-y-3">
+                    <li class="p-4 bg-purple-50 rounded-xl border-2 border-purple-200 font-bold text-purple-800">(A) 茄子</li>
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(B) 白蘿蔔</li>
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(C) 高麗菜</li>
+                </ul>
+            </article>
+
+            <!-- Question 5 - Wide Bento -->
+            <article class="glass-card p-8 rounded-2xl hover-lift border-l-8 border-red-400 md:col-span-2">
+                <div class="flex flex-col md:flex-row md:items-center gap-6">
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-10 h-10 flex items-center justify-center bg-red-100 text-red-600 rounded-full font-black text-xl font-display">5</span>
+                            <h2 class="text-xl font-bold text-charcoal">圓滾滾紅通通</h2>
+                        </div>
+                        <p class="text-2xl font-medium leading-snug mb-6 text-gray-800">
+                            這種蔬菜紅通通、圓滾滾的，摸起來滑滑的，可以煮湯也可以生吃喔！
+                        </p>
+                    </div>
+                    <ul class="flex-1 space-y-3">
+                        <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(A) 馬鈴薯</li>
+                        <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(B) 洋蔥</li>
+                        <li class="p-4 bg-red-50 rounded-xl border-2 border-red-200 font-bold text-red-800">(C) 番茄</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Question 6 -->
+            <article class="glass-card p-8 rounded-2xl hover-lift border-l-8 border-amber-600">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-10 h-10 flex items-center justify-center bg-amber-100 text-amber-600 rounded-full font-black text-xl font-display">6</span>
+                    <h2 class="text-xl font-bold text-charcoal">變身薯條</h2>
+                </div>
+                <p class="text-2xl font-medium leading-snug mb-6 text-gray-800">
+                    什麼蔬菜躲在地底下長大，皮是咖啡色的，可以變成小朋友最愛的薯條？
+                </p>
+                <ul class="space-y-3">
+                    <li class="p-4 bg-amber-50 rounded-xl border-2 border-amber-200 font-bold text-amber-800">(A) 馬鈴薯</li>
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(B) 南瓜</li>
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(C) 小黃瓜</li>
+                </ul>
+            </article>
+
+            <!-- Question 7 -->
+            <article class="glass-card p-8 rounded-2xl hover-lift border-l-8 border-gray-300">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-10 h-10 flex items-center justify-center bg-gray-100 text-gray-600 rounded-full font-black text-xl font-display">7</span>
+                    <h2 class="text-xl font-bold text-charcoal">大白蘿蔔</h2>
+                </div>
+                <p class="text-2xl font-medium leading-snug mb-6 text-gray-800">
+                    有一種蔬菜長得白白胖胖的，大家都叫它「大白蘿蔔」，它是長在哪裡的呢？
+                </p>
+                <ul class="space-y-3">
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(A) 樹上</li>
+                    <li class="p-4 bg-gray-50 rounded-xl border-2 border-gray-200 font-bold text-gray-800">(B) 土壤裡</li>
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(C) 水面上</li>
+                </ul>
+            </article>
+
+            <!-- Question 8 -->
+            <article class="glass-card p-8 rounded-2xl hover-lift border-l-8 border-emerald-300">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-10 h-10 flex items-center justify-center bg-emerald-100 text-emerald-600 rounded-full font-black text-xl font-display">8</span>
+                    <h2 class="text-xl font-bold text-charcoal">層層外衣</h2>
+                </div>
+                <p class="text-2xl font-medium leading-snug mb-6 text-gray-800">
+                    哪一種蔬菜有很多層葉子，圓圓的像一顆大球，媽媽常拿它來炒飯？
+                </p>
+                <ul class="space-y-3">
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(A) 辣椒</li>
+                    <li class="p-4 bg-emerald-50 rounded-xl border-2 border-emerald-200 font-bold text-emerald-800">(B) 高麗菜</li>
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(C) 苦瓜</li>
+                </ul>
+            </article>
+
+            <!-- Question 9 -->
+            <article class="glass-card p-8 rounded-2xl hover-lift border-l-8 border-rose-200">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-10 h-10 flex items-center justify-center bg-rose-100 text-rose-600 rounded-full font-black text-xl font-display">9</span>
+                    <h2 class="text-xl font-bold text-charcoal">流眼淚魔法</h2>
+                </div>
+                <p class="text-2xl font-medium leading-snug mb-6 text-gray-800">
+                    切開這種蔬菜時，眼睛會感覺辣辣的、想流眼淚，它是誰呢？
+                </p>
+                <ul class="space-y-3">
+                    <li class="p-4 bg-rose-50 rounded-xl border-2 border-rose-200 font-bold text-rose-800">(A) 洋蔥</li>
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(B) 絲瓜</li>
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(C) 菠菜</li>
+                </ul>
+            </article>
+
+            <!-- Question 10 -->
+            <article class="glass-card p-8 rounded-2xl hover-lift border-l-8 border-orange-500">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-10 h-10 flex items-center justify-center bg-orange-100 text-orange-600 rounded-full font-black text-xl font-display">10</span>
+                    <h2 class="text-xl font-bold text-charcoal">萬聖節燈籠</h2>
+                </div>
+                <p class="text-2xl font-medium leading-snug mb-6 text-gray-800">
+                    萬聖節的時候，大家最喜歡用哪種大大的、橘色的蔬菜來做燈籠？
+                </p>
+                <ul class="space-y-3">
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(A) 西瓜</li>
+                    <li class="p-4 bg-orange-50 rounded-xl border-2 border-orange-200 font-bold text-orange-800">(B) 南瓜</li>
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(C) 冬瓜</li>
+                </ul>
+            </article>
+
+            <!-- Question 11 -->
+            <article class="glass-card p-8 rounded-2xl hover-lift border-l-8 border-green-500">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-10 h-10 flex items-center justify-center bg-green-100 text-green-600 rounded-full font-black text-xl font-display">11</span>
+                    <h2 class="text-xl font-bold text-charcoal">脆脆有小刺</h2>
+                </div>
+                <p class="text-2xl font-medium leading-snug mb-6 text-gray-800">
+                    這種蔬菜長得長長的、綠綠的，表面還有小刺，吃起來脆脆涼涼的？
+                </p>
+                <ul class="space-y-3">
+                    <li class="p-4 bg-green-50 rounded-xl border-2 border-green-200 font-bold text-green-800">(A) 小黃瓜</li>
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(B) 紅薯</li>
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(C) 豆芽菜</li>
+                </ul>
+            </article>
+
+            <!-- Question 12 -->
+            <article class="glass-card p-8 rounded-2xl hover-lift border-l-8 border-stone-400">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-10 h-10 flex items-center justify-center bg-stone-100 text-stone-600 rounded-full font-black text-xl font-display">12</span>
+                    <h2 class="text-xl font-bold text-charcoal">小雨傘</h2>
+                </div>
+                <p class="text-2xl font-medium leading-snug mb-6 text-gray-800">
+                    有一種蔬菜長得像一把小雨傘，有的白白的、有的咖啡色的，它是什麼？
+                </p>
+                <ul class="space-y-3">
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(A) 蘆筍</li>
+                    <li class="p-4 bg-stone-50 rounded-xl border-2 border-stone-200 font-bold text-stone-800">(B) 香菇</li>
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(C) 芹菜</li>
+                </ul>
+            </article>
+
+            <!-- Question 13 -->
+            <article class="glass-card p-8 rounded-2xl hover-lift border-l-8 border-red-500">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-10 h-10 flex items-center justify-center bg-red-100 text-red-600 rounded-full font-black text-xl font-display">13</span>
+                    <h2 class="text-xl font-bold text-charcoal">彩色燈籠</h2>
+                </div>
+                <p class="text-2xl font-medium leading-snug mb-6 text-gray-800">
+                    哪一種蔬菜有很多種顏色，有紅色的、黃色的、綠色的，長得像小燈籠？
+                </p>
+                <ul class="space-y-3">
+                    <li class="p-4 bg-red-50 rounded-xl border-2 border-red-200 font-bold text-red-800">(A) 甜椒</li>
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(B) 茄子</li>
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(C) 苦瓜</li>
+                </ul>
+            </article>
+
+            <!-- Question 14 -->
+            <article class="glass-card p-8 rounded-2xl hover-lift border-l-8 border-blue-400 md:col-span-2">
+                <div class="flex flex-col md:flex-row md:items-center gap-6">
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-10 h-10 flex items-center justify-center bg-blue-100 text-blue-600 rounded-full font-black text-xl font-display">14</span>
+                            <h2 class="text-xl font-bold text-charcoal">肚肚健康</h2>
+                        </div>
+                        <p class="text-2xl font-medium leading-snug mb-6 text-gray-800">
+                            多吃綠色蔬菜，像是菠菜或青江菜，可以幫助我們身體的哪個部分變健康？
+                        </p>
+                    </div>
+                    <ul class="flex-1 space-y-3">
+                        <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(A) 讓頭髮變長</li>
+                        <li class="p-4 bg-blue-50 rounded-xl border-2 border-blue-200 font-bold text-blue-800">(B) 幫助肚子排便順暢</li>
+                        <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(C) 讓牙齒變黑</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Question 15 -->
+            <article class="glass-card p-8 rounded-2xl hover-lift border-l-8 border-lime-500">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-10 h-10 flex items-center justify-center bg-lime-100 text-lime-600 rounded-full font-black text-xl font-display">15</span>
+                    <h2 class="text-xl font-bold text-charcoal">豆莢珍珠</h2>
+                </div>
+                <p class="text-2xl font-medium leading-snug mb-6 text-gray-800">
+                    哪一種蔬菜躲在豆莢裡，綠綠圓圓的小顆粒，長得像小珍珠？
+                </p>
+                <ul class="space-y-3">
+                    <li class="p-4 bg-lime-50 rounded-xl border-2 border-lime-200 font-bold text-lime-800">(A) 豌豆</li>
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(B) 玉米</li>
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(C) 土豆</li>
+                </ul>
+            </article>
+
+            <!-- Question 16 -->
+            <article class="glass-card p-8 rounded-2xl hover-lift border-l-8 border-indigo-400">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-10 h-10 flex items-center justify-center bg-indigo-100 text-indigo-600 rounded-full font-black text-xl font-display">16</span>
+                    <h2 class="text-xl font-bold text-charcoal">香噴噴地瓜</h2>
+                </div>
+                <p class="text-2xl font-medium leading-snug mb-6 text-gray-800">
+                    這種蔬菜吃起來甜甜的，皮是紅紅紫紫的，烤過之後香噴噴，它是什麼？
+                </p>
+                <ul class="space-y-3">
+                    <li class="p-4 bg-indigo-50 rounded-xl border-2 border-indigo-200 font-bold text-indigo-800">(A) 地瓜</li>
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(B) 白蘿蔔</li>
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(C) 絲瓜</li>
+                </ul>
+            </article>
+
+            <!-- Question 17 -->
+            <article class="glass-card p-8 rounded-2xl hover-lift border-l-8 border-teal-600">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-10 h-10 flex items-center justify-center bg-teal-100 text-teal-600 rounded-full font-black text-xl font-display">17</span>
+                    <h2 class="text-xl font-bold text-charcoal">苦苦也健康</h2>
+                </div>
+                <p class="text-2xl font-medium leading-snug mb-6 text-gray-800">
+                    雖然這種蔬菜臉上凹凹凸凸的，吃起來苦苦的，但對身體非常健康喔！
+                </p>
+                <ul class="space-y-3">
+                    <li class="p-4 bg-teal-50 rounded-xl border-2 border-teal-200 font-bold text-teal-800">(A) 苦瓜</li>
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(B) 冬瓜</li>
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(C) 南瓜</li>
+                </ul>
+            </article>
+
+            <!-- Question 18 -->
+            <article class="glass-card p-8 rounded-2xl hover-lift border-l-8 border-stone-300">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-10 h-10 flex items-center justify-center bg-stone-100 text-stone-600 rounded-full font-black text-xl font-display">18</span>
+                    <h2 class="text-xl font-bold text-charcoal">趕走細菌</h2>
+                </div>
+                <p class="text-2xl font-medium leading-snug mb-6 text-gray-800">
+                    哪一種蔬菜白白的、味道香香辣辣的，媽媽煮菜時常放一點來趕走感冒細菌？
+                </p>
+                <ul class="space-y-3">
+                    <li class="p-4 bg-stone-50 rounded-xl border-2 border-stone-200 font-bold text-stone-800">(A) 大蒜</li>
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(B) 草莓</li>
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(C) 葡萄</li>
+                </ul>
+            </article>
+
+            <!-- Question 19 -->
+            <article class="glass-card p-8 rounded-2xl hover-lift border-l-8 border-orange-300">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-10 h-10 flex items-center justify-center bg-orange-100 text-orange-600 rounded-full font-black text-xl font-display">19</span>
+                    <h2 class="text-xl font-bold text-charcoal">保護眼睛</h2>
+                </div>
+                <p class="text-2xl font-medium leading-snug mb-6 text-gray-800">
+                    胡蘿蔔裡面有很多維生素A，小朋友多吃可以保護身體的哪個地方？
+                </p>
+                <ul class="space-y-3">
+                    <li class="p-4 bg-orange-50 rounded-xl border-2 border-orange-200 font-bold text-orange-800">(A) 眼睛</li>
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(B) 耳朵</li>
+                    <li class="p-4 bg-white/50 rounded-xl border border-gray-100 font-medium">(C) 腳趾頭</li>
+                </ul>
+            </article>
+
+            <!-- Question 20 - Wide Bento -->
+            <article class="glass-card p-10 rounded-2xl hover-lift border-l-8 border-yellow-500 md:col-span-2">
+                <div class="flex flex-col md:flex-row md:items-center gap-8">
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-12 h-12 flex items-center justify-center bg-yellow-100 text-yellow-600 rounded-full font-black text-2xl font-display">20</span>
+                            <h2 class="text-2xl font-bold text-charcoal tracking-tight">為什麼吃蔬菜？</h2>
+                        </div>
+                        <p class="text-3xl font-bold leading-tight mb-4 text-gray-800">
+                            為什麼我們每天都要吃蔬菜呢？
+                        </p>
+                    </div>
+                    <ul class="flex-1 space-y-4">
+                        <li class="p-5 bg-yellow-50 rounded-2xl border-2 border-yellow-200 font-bold text-xl text-yellow-900 shadow-sm leading-relaxed">
+                            (A) 因為蔬菜很好吃、能讓身體有活力
+                        </li>
+                        <li class="p-5 bg-white/50 rounded-2xl border border-gray-100 font-medium text-lg">(B) 因為蔬菜會說話</li>
+                        <li class="p-5 bg-white/50 rounded-2xl border border-gray-100 font-medium text-lg">(C) 因為蔬菜會飛</li>
+                    </ul>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer Space -->
+    <div class="h-24"></div>
+
+    <script>
+        // Simple entrance animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.glass-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * (index % 10)); // Staggered reveal
+            });
+        });
+    </script>
+</body>
+</html>
