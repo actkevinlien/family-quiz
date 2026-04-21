@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button id="btn">開啟相機</button>
+
+<script>
+document.getElementById("btn").onclick = async () => {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({
+      video: { facingMode: "environment" }
+    });
+
+    const video = document.createElement("video");
+    document.body.appendChild(video);
+    video.srcObject = stream;
+    video.play();
+
+  } catch (err) {
+    alert(err.name + " / " + err.message);
+  }
+};
+</script>
+
+</body>
+</html>
