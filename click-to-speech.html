@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>點擊單字發音範例</title>
+    <style>
+        body {
+            font-family: "Microsoft JhengHei", sans-serif;
+            line-height: 1.8;
+            padding: 40px;
+            background-color: #f4f7f6;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        /* 讓可點擊的單字有特殊樣式 */
+        .word {
+            cursor: pointer;
+            color: #3498db;
+            font-weight: bold;
+            padding: 2px 4px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        .word:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        .instruction {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>點擊單字聽發音</h2>
+    <p class="instruction">提示：點擊下方的藍色單字即可聆聽美式英語發音。</p>
+    
+    <p>
+        I like to eat <span class="word" onclick="speak('apple')">apple</span>. 
+        It is very <span class="word" onclick="speak('delicious')">delicious</span>.
+    </p>
+    
+    <p>
+        Learning <span class="word" onclick="speak('programming')">programming</span> 
+        is <span class="word" onclick="speak('interesting')">interesting</span> and fun!
+		 
+    </p>
+</div>
+
+<script>
+    /**
+     * 發音函數 使用 Web Speech API
+     * @param {string} text 要發音的文字
+     */
+    function speak(text) {
+        // 1. 檢查瀏覽器是否支援語音合成
+        if (!window.speechSynthesis) {
+            alert("抱歉，您的瀏覽器不支援語音合成功能。");
+            return;
+        }
+
+        // 2. 如果正在發音，先停止（避免重疊）
+        window.speechSynthesis.cancel();
+
+        // 3. 建立發音物件
+        const utterance = new SpeechSynthesisUtterance(text);
+        
+        // 4. 設定參數
+        utterance.lang = 'en-US'; // 語系：美式英文
+        utterance.pitch = 1.0;      // 音高 (0 to 2)
+        utterance.rate = 0.9;       // 語速 (0.1 to 10)，稍微調慢一點比較清晰
+
+        // 5. 執行發音
+        window.speechSynthesis.speak(utterance);
+    }
+</script>
+
+</body>
+</html>
